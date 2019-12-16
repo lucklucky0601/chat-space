@@ -6,3 +6,4 @@ class ApplicationController < ActionController::Base
     g.test_framework false
   protect_from_forgery with: :exception
 end
+end
