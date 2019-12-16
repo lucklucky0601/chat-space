@@ -1,0 +1,28 @@
+.main-chat
+  .main-chat__headar
+    .main-chat__headar__box
+      .main-chat__headar__group-name
+        あんどう
+      .main-chat__headar__Member
+        Member：luck
+    .main-chat__headar__Edit
+      =link_to "#", class: "" do
+        Edit
+  .main-chat__message-list
+    .main-chat__message-list__box
+      .main-chat__message-list__socond
+        .main-chat__message-list__name
+          luck
+        .main-chat__message-list__time
+          2019/00/00(Thu) 00:00:00
+      .main-chat__message-list__messege
+        おはよう    
+  .main-chat__form
+    .main-chat__form__box
+      %input{type: "text" ,placeholder: "type a message" }
+      .main-chat__form__image
+      %label{class: "main-chat__form__image"}
+        = icon('fa', 'image', class: "")
+        %input{type: "file", class: "file"}
+    =link_to "#", class: "" do
+      Send
