@@ -4,7 +4,7 @@
       .top-items__name
         luck
       .top-items__icons
-        =link_to "#", class: "top-items" do
+        =link_to new_group_path(@group), class: "top-items" do
           = icon('fa', 'edit', class: "top-items-left")
           = icon('fa', 'cog', class: "top-items-right")
   .side-bar__group-list
