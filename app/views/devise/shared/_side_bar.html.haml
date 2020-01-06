@@ -8,13 +8,10 @@
           = icon('fa', 'edit', class: "top-items-left")
           = icon('fa', 'cog', class: "top-items-right")
   .side-bar__group-list
-    .side-bar__group-list__name
-      あんどう
-    .side-bar__group-list__message
-      おめでとう！
-
-
-    .side-bar__group-list__name
-      techcamp
-    .side-bar__group-list__message
-      まだメッセージがありません
+    - current_user.groups.each do |group|
+      .group
+        = link_to '#' do
+          .side-bar__group-list__name
+            = group.name
+          .side-bar__group-list__message
+            メッセージはまだありません。
