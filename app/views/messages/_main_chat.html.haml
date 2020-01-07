@@ -17,15 +17,6 @@
           2019/00/00(Thu) 00:00:00
       .main-chat__message-list__messege
         おはよう    
-  .main-chat__form
-    .main-chat__form__box
-      %input{type: "text" ,placeholder: "type a message" }
-      .main-chat__form__image
-      %label{class: "main-chat__form__image"}
-        = icon('fa', 'image', class: "")
-        %input{type: "file", class: "file"}
-    =link_to "#", class: "" do
-      Send
       .form
       = form_for [@group, @message] do |f|
         = f.text_field :content, class: 'form__message', placeholder: 'type a message'
@@ -34,3 +25,14 @@
             = icon('fas', 'image', class: 'icon')
             = f.file_field :image, class: 'hidden'
         = f.submit 'Send', class: 'form__submit'
+
+
+  -# .main-chat__form
+  -#   .main-chat__form__box
+  -#     %input{type: "text" ,placeholder: "type a message" }
+  -#     .main-chat__form__image
+  -#     %label{class: "main-chat__form__image"}
+  -#       = icon('fa', 'image', class: "")
+  -#       %input{type: "file", class: "file"}
+  -#   =link_to "#", class: "" do
+  -#     Send
