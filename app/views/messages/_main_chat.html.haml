@@ -5,19 +5,21 @@
         = @group.name
       .main-chat__headar__Member
         - @group.users.each do |user|
+          Member :
           = user.name
     .main-chat__headar__Edit
       =link_to "/groups/#{@group.id}/edit", class: "" do
         edit
   .main-chat__message-list
-    .main-chat__message-list__box
-      .main-chat__message-list__socond
-        .main-chat__message-list__name
-          luck
-        .main-chat__message-list__time
-          2019/00/00(Thu) 00:00:00
-      .main-chat__message-list__messege
-        おはよう
+    = render @messages
+    -# .main-chat__message-list__box
+    -#   .main-chat__message-list__socond
+    -#     .main-chat__message-list__name
+    -#       luck
+    -#     .main-chat__message-list__time
+    -#       2019/00/00(Thu) 00:00:00
+    -#   .main-chat__message-list__messege
+    -#     おはよう
   .form
     = form_for [@group, @message] do |f|
       = f.text_field :content, class: 'form__message', placeholder: 'type a message'
