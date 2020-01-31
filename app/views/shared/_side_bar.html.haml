@@ -1,11 +1,12 @@
 .side-bar
   .side-bar__user-name
-    .top-items
-      .top-items__name
-        luck
-      .top-items__icons
+    .side-bar__top-items
+      .side-bar__top-items__name
+        = current_user.name
+      .side-bar__top-items__icons
         =link_to new_group_path(@group), class: "top-items" do
           = icon('fa', 'edit', class: "top-items-left")
+        =link_to edit_user_path(current_user), class: "top-items" do
           = icon('fa', 'cog', class: "top-items-right")
   .side-bar__group-list
     - current_user.groups.each do |group|
@@ -15,3 +16,9 @@
             = group.name
           .side-bar__group-list__message
             = group.show_last_message
+
+
+
+    -# .group
+    -#   .group__name
+    -#   .group__message

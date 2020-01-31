@@ -1,9 +1,15 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: [:edit, :update]
   def index
+    @users = User.search(params[:keyword], current_user.id)
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
   
   def new
+    # binding.pry
     @group = Group.new
     @group.users << current_user
   end
@@ -31,6 +37,7 @@ class GroupsController < ApplicationController
 
   private
   def group_params
+    # binding.pry
     params.require(:group).permit(:name, user_ids: [] )
   end
 
