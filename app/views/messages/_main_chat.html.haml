@@ -4,9 +4,9 @@
       .main-chat__headar__group-name
         = @group.name
       .main-chat__headar__Member
-        - @group.users.each do |user|
-          Member :
-          = user.name
+        Member :
+        - @group.group_users.each do |group_user|
+          = group_user.user.name
     .main-chat__headar__Edit
       =link_to "/groups/#{@group.id}/edit", class: "" do
         edit
