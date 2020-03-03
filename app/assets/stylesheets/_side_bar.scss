@@ -37,6 +37,9 @@
       &__group-list{
         height: calc(100vh - 100px);
         background-color: #2f3e51;
+        a{
+          text-decoration: none;
+        }
         &__name{
           font-size: 15px;
           padding-top: 20px;
