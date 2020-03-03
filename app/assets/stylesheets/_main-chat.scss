@@ -73,7 +73,10 @@
       position: fixed;
       bottom: 0;
       width: 100%;
+      width: calc(100vw - 300px);
       .new_message{
+        width: 100%;
+        display: flex;
         .form__message{
           height: 50px;
           width: 930px;
@@ -95,7 +98,6 @@
         .form__submit{
           background-color: #38aef0;
           line-height: 50px;
-          position: absolute;
           top: 20px;
           bottom: 20px;
           right: 345px;
