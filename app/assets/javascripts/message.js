@@ -1,5 +1,6 @@
 $(function(){
-  var buildHTML = function(message) {
+  var buildHTML = function(message) {   
+    // console.log(message.id)
     if (message.content && message.image) {
         var html = `<div class="message" data-message-id=  ${message.id} >
         <div class="upper-message">
@@ -48,6 +49,7 @@ $(function(){
         </div>
       </div>`
     };
+    // console.log(html)
     return html;
   };
 
@@ -65,7 +67,7 @@ $(function(){
     })
     .done(function(data){
       var html = buildHTML(data);
-      $('.main-chat__message-list').append(html);      
+      $('.main-chat__message-list').append(html);
        $('form')[0].reset();
        $('.box').animate({'height' : '200px'});
        $('.main-chat__message-list').animate({ scrollTop: $('.main-chat__message-list')[0].scrollHeight});
@@ -75,6 +77,7 @@ $(function(){
       alert("メッセージ送信に失敗しました");
     });
   });
+
   var reloadMessages = function() {
     last_message_id = $('.message:last').data("message-id");
     $.ajax({
@@ -83,6 +86,22 @@ $(function(){
       dataType: 'json',
       data: {id: last_message_id}
     })
+    .done(function(data){
+      data.forEach(function(data){
+      var html = buildHTML(data);
+      // console.log(html)
+      $('.main-chat__message-list').append(html);
+      })
+      
+      // console.log(data)
+       $('form')[0].reset();
+       $('.box').animate({'height' : '200px'});
+       $('.main-chat__message-list').animate({ scrollTop: $('.main-chat__message-list')[0].scrollHeight});
+       $('.form__submit').prop('disabled', false);
+    })
+    .fail(function() {
+      alert("メッセージ送信に失敗しました");
+    });
   }
   if (document.location.href.match(/\/groups\/\d+\/messages/)) {
     setInterval(reloadMessages, 7000);
