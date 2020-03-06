@@ -42,7 +42,9 @@
       overflow: scroll;
       .upper-message{
         width: 100vw;
-        padding-left: 40px;
+      }
+      .upper-message__user-name{
+        float: left;
       }
         &__socond{
           display:flex;
@@ -52,6 +54,7 @@
             font-size: 16px;
             font-weight: bold;
             margin-right: 20px;
+            padding-left: 40px;
           }
           .upper-message__date{
             color: #999999;
